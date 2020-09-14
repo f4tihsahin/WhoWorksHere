@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WhoWorksHere.Models;
 
 namespace WhoWorksHere.Migrations
 {
     [DbContext(typeof(WhoWorksHereContext))]
-    partial class WhoWorksHereContextModelSnapshot : ModelSnapshot
+    [Migration("20200914192403_AddedRelations")]
+    partial class AddedRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
