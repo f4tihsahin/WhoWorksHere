@@ -31,5 +31,13 @@ namespace WhoWorksHere.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteDepartment(int id)
+        {
+            var deleteDepartment = _context.Departments.Find(id);
+            _context.Departments.Remove(deleteDepartment);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
