@@ -27,8 +27,9 @@ namespace WhoWorksHere.Controllers
         [HttpPost]
         public IActionResult AddDepartment(Department department)
         {
-
-            return View();
+            _context.Departments.Add(department);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

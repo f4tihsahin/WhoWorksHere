@@ -1,8 +1,16 @@
-﻿
+﻿@model WhoWorksHere.Models.Department
+
 @{
     ViewData["Title"] = "AddDepartment";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h1>AddDepartment</h1>
+<br/>
+<h1>Add New Department</h1>
 
+<form class="form-group" method="post">
+    <b>@Html.LabelFor(d => d.DepartmentName)</b>
+    @Html.TextBoxFor(d=>d.DepartmentName, new {@class="form-control"})
+    <br />
+    <button class="btn alert-info">Add Department</button>
+</form>
