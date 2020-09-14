@@ -39,5 +39,20 @@ namespace WhoWorksHere.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult UpdateDepartment(int id)
+        {
+            var updateDepartment = _context.Departments.Find(id);
+            return View("UpdateDepartment",updateDepartment);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateDpt(Department department)
+        {
+            var updateDepartment = _context.Departments.Find(department.Id);
+            updateDepartment.DepartmentName = department.DepartmentName;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
