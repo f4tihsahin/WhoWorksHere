@@ -54,5 +54,14 @@ namespace WhoWorksHere.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DetailDepartment(int id)
+        {
+            var result = _context.Employees.Where(e => e.DepartmentId == id).ToList();
+            var departmentName = _context.Departments.Where(d => d.Id == id).Select(y => y.DepartmentName)
+                .FirstOrDefault();
+            ViewBag.departmentName = departmentName;
+            return View(result);
+        }
     }
 }
