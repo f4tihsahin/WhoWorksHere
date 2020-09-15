@@ -47,7 +47,7 @@ namespace WhoWorksHere.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateDpt(Department department)
+        public IActionResult UpdateDepartment(Department department)
         {
             var updateDepartment = _context.Departments.Find(department.Id);
             updateDepartment.DepartmentName = department.DepartmentName;

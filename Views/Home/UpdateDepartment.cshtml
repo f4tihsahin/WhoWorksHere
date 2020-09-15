@@ -2,11 +2,11 @@
 
 @{
     ViewData["Title"] = "UpdateDepartment";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <br/>
-@using (Html.BeginForm("UpdateDpt", "Home", FormMethod.Post))
+@using (Html.BeginForm("UpdateDepartment", "Home", FormMethod.Post))
 {
     <b>Department Id</b>
     @Html.TextBoxFor(d => d.Id, new { @class = "form-control" })

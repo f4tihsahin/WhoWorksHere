@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <br />
@@ -31,4 +31,4 @@
     </tbody>
 </table>
 
-<a href="/home/AddDepartment" class="btn alert-primary">Add New Department</a>
+<a asp-controller="Home" asp-action="AddDepartment" class="btn alert-primary">Add New Department</a>

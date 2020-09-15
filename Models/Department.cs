@@ -9,6 +9,6 @@ namespace WhoWorksHere.Models
         public int Id { get; set; }
         public string DepartmentName { get; set; }
 
-        public List<Employee> Employees { get; set; }
+        public IList<Employee> Employees { get; set; }
     }
 }
