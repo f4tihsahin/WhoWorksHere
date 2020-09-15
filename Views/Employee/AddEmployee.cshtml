@@ -1,0 +1,22 @@
+﻿@model WhoWorksHere.Models.Employee
+
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h3>New Employee</h3>
+
+<form class="form-group" method="post">
+    <b>@Html.LabelFor(e => e.FirstName)</b>
+    @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control" })
+    <b>@Html.LabelFor(e => e.LastName)</b>
+    @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
+    <b>@Html.LabelFor(e => e.Address)</b>
+    @Html.TextBoxFor(e => e.Address, new { @class = "form-control" })
+    <b>@Html.LabelFor(e => e.Department.DepartmentName)</b>
+    @Html.DropDownListFor(d => d.Department.Id, (List<SelectListItem>)ViewBag.value, new {@class = "form-control"})
+    <br />
+    <button class="btn alert-info"><b>Add Employee</b></button>
+</form>
