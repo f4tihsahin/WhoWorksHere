@@ -4,33 +4,39 @@
 
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<head>
+    <title>Asp.Net Core MVC Practice Area</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Asp.Net Core MVC Practice Area</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarText"
+                aria-controls="navbarText"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/User/Login">Login</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/home/Index">Departments</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/employee/Index">Employees</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">Exit</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
-    <h3 class="w3-bar-item">Menu</h3>
-    <a href="/home/Index" class="w3-bar-item w3-button">Departments</a>
-    <a href="/employee/Index" class="w3-bar-item w3-button">Employees</a>
-    <a href="#" class="w3-bar-item w3-button">About Us</a>
-    <a href="#" class="w3-bar-item w3-button">Exit</a>
+<div class="container">
+    @RenderBody()
 </div>
 
-<!-- Page Content -->
-<div style="margin-left:15%">
 
-    <div class="w3-container w3-teal">
-        <h1>Asp.Net Core MVC Practice Area</h1>
-    </div>
-
-    <div class="w3-container">
-        @RenderBody()
-    </div>
-
-</div>
-      
 </body>
 </html>
