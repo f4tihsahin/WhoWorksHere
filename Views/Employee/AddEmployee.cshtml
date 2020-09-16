@@ -7,16 +7,23 @@
 
 <br />
 <h3>New Employee</h3>
-
-<form class="form-group" method="post">
-    <b>@Html.LabelFor(e => e.FirstName)</b>
-    @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control" })
-    <b>@Html.LabelFor(e => e.LastName)</b>
-    @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
-    <b>@Html.LabelFor(e => e.Address)</b>
-    @Html.TextBoxFor(e => e.Address, new { @class = "form-control" })
-    <b>@Html.LabelFor(e => e.Department.DepartmentName)</b>
-    @Html.DropDownListFor(d => d.Department.Id, (List<SelectListItem>)ViewBag.value, new {@class = "form-control"})
-    <br />
-    <button class="btn alert-info"><b>Add Employee</b></button>
+<br/>
+<form asp-action="AddEmployee" asp-controller="Employee">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <b><label asp-for="FirstName" class="control-label"></label></b>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <b><label asp-for="LastName" class="control-label"></label></b>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+        <b><label asp-for="Address" class="control-label"></label></b>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+        <label asp-for="Department.DepartmentName" class="control-label"></label>
+        <select asp-for="Department.DepartmentName" class ="form-control" asp-items="ViewBag.DepartmentName"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Employee" class="btn alert-info" />
+    </div>
 </form>

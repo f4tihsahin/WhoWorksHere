@@ -12,7 +12,7 @@ namespace WhoWorksHere.Controllers
     {
         WhoWorksHereContext _context = new WhoWorksHereContext();
 
-        [Authorize]
+        //[Authorize]
         public IActionResult Index()
         {
             var employees = _context.Employees.Include(d => d.Department).ToList();
@@ -22,23 +22,14 @@ namespace WhoWorksHere.Controllers
         [HttpGet]
         public IActionResult AddEmployee()
         {
-            List<SelectListItem> departments = (from department in _context.Departments.ToList()
-                                                select new SelectListItem()
-                                                {
-                                                    Text = department.DepartmentName,
-                                                    Value = department.Id.ToString(),
-                                                }).ToList();
-            ViewBag.value = departments;
+            ViewData["DepartmentName"] = new SelectList(_context.Departments, "DepartmentName", "DepartmentName");
             return View();
         }
 
         [HttpPost]
         public IActionResult AddEmployee(Employee employee)
         {
-            var employeeDepartment = _context.Departments.Where(d => d.Id == employee.Department.Id).FirstOrDefault();
-            employee.Department = employeeDepartment;
-            
-            _context.Employees.Add(employee);
+            _context.Add(employee);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

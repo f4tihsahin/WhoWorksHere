@@ -8,9 +8,14 @@
 <br/>
 <h3>New Department</h3>
 
-<form class="form-group" method="post">
-    <b>@Html.LabelFor(d => d.DepartmentName)</b>
-    @Html.TextBoxFor(d => d.DepartmentName, new {@class = "form-control"})
-    <br/>
-    <button class="btn alert-info"><b>Add Department</b></button>
+<form asp-action="AddDepartment">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="DepartmentName" class="control-label"></label>
+        <input asp-for="DepartmentName" class="form-control" />
+        <span asp-validation-for="DepartmentName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
 </form>

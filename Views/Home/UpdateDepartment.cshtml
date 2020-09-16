@@ -6,14 +6,15 @@
 }
 
 <br/>
-@using (Html.BeginForm("UpdateDepartment", "Home", FormMethod.Post))
-{
-    <b>Department Id</b>
-    @Html.TextBoxFor(d => d.Id, new { @class = "form-control" })
-    <br/>
-    <b>@Html.LabelFor(d => d.DepartmentName)</b>
-    @Html.TextBoxFor(d => d.DepartmentName, new { @class = "form-control" })
-    <br />
-    <button class="btn alert-info"><b>Update Department</b></button>
-}
-
+<form asp-action="UpdateDepartment">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="DepartmentName" class="control-label"></label>
+        <input asp-for="DepartmentName" class="form-control" />
+        <span asp-validation-for="DepartmentName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
