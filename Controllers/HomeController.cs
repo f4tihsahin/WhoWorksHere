@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using WhoWorksHere.Models;
 
 namespace WhoWorksHere.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         WhoWorksHereContext _context = new WhoWorksHereContext();
